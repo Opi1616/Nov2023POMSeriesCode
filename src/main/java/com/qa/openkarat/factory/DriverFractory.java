@@ -49,13 +49,13 @@ public class DriverFractory {
 			// driver = new EdgeDriver(optionsManger.getEdgeOptions());
 			tlDriver.set(new EdgeDriver(optionsManager.getEdgeOptions()));
 		} else {
-			System.out.println("please pass the right browser....." + browserName);
+			System.out.println("please pass the right browser name....." + browserName);
 			throw new FrameworkException("NO BROWSER FOUND EXCEPTION");
 		}
 
 		getDriver().manage().deleteAllCookies();
 		getDriver().manage().window().maximize();
-		getDriver().get(prop.getProperty("url"));
+		getDriver().get(prop.getProperty("url").trim());
 		return getDriver();
 	}
 
